@@ -1,0 +1,40 @@
+﻿<Window x:Class="the_debt_book.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:the_debt_book"
+        xmlns:viewModels="clr-namespace:the_debt_book.ModelViews"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Window.DataContext>
+        <viewModels:MainWindowViewModel/>
+    </Window.DataContext>
+
+    <Grid Name="DeptGrid">
+        <Label 
+            Content="Depts"
+            HorizontalAlignment="Left"
+            Margin="10,10,0,0" 
+            VerticalAlignment="Top"/>
+        <Button 
+            Command="{Binding Path=ButtonAddClickCommand}"
+            Content="Add" 
+            HorizontalAlignment="Left" 
+            Margin="232,21,0,0"
+            VerticalAlignment="Top" 
+            Width="75"
+            />
+        <ListBox 
+            ItemsSource="{Binding Path = Deptslist}"
+            DisplayMemberPath="Combined"
+            Margin="20, 50"
+            Width="200" 
+            HorizontalAlignment="Left"
+            Name="lbDepts"/>
+    </Grid>
+
+
+
+</Window>
