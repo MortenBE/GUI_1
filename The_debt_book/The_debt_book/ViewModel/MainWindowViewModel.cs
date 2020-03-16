@@ -46,15 +46,15 @@ namespace The_debt_book
             get
             {
                 return _addClickCommand ?? (_addClickCommand = new DelegateCommand(() =>
-                { 
-                    AddDeptorView newDept = new AddDeptorView();
+                {
+                    Views.AddDeptorView newDept = new Views.AddDeptorView();
                     newDept.Show();
                 }));
             }
 
         }
 
-        private ICommand _closeCommand;
+
 
         public ICommand ButtonCloseCommand
         {

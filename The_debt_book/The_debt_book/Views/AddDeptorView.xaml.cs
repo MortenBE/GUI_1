@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using The_debt_book.AddDeptorView;
 
 namespace The_debt_book.Views
 {
@@ -22,6 +23,10 @@ namespace The_debt_book.Views
         public AddDeptorView()
         {
             InitializeComponent();
+            AddDeptorViewModel vm = new AddDeptorViewModel();
+            this.DataContext = vm;
+            if (vm.CloseAction == null)
+                vm.CloseAction = new Action(this.Close);
         }
     }
 }
