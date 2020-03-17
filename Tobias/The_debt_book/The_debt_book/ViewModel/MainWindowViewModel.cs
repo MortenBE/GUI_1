@@ -1,46 +1,44 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Windows;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Prism.Commands;
 using Prism.Mvvm;
 using TheDebtBook.Models;
-using TheDebtBook.ViewModels;
 using The_debt_book.Views;
 
 namespace TheDebtBook
 {
     public class MainWindowViewModel : BindableBase
     {
-        private Depts _currentDebtor;
-        private ObservableCollection<Depts> _debtors;
-        private int _currentIndex;
+        private int _index;
+        private Depts _currentDeptor;
+        private ObservableCollection<Depts> _deptors;
+        
 
         public MainWindowViewModel()
         {
-            Debtors = new ObservableCollection<Depts>()
+            Deptors = new ObservableCollection<Depts>()
             {
                 new Depts("Gustav", 100),
                 new Depts("Morten", 150),
             };
         }
 
-        public Depts CurrentDebtor
+        public ObservableCollection<Depts> Deptors
         {
-            get => _currentDebtor;
-            set => SetProperty(ref _currentDebtor, value);
+            get => _deptors;
+            set => SetProperty(ref _deptors, value);
         }
 
-        public ObservableCollection<Depts> Debtors
+        public int Index
         {
-            get => _debtors;
-            set => SetProperty(ref _debtors, value);
+            get => _index;
+            set => SetProperty(ref _index, value);
         }
 
-        public int CurrentIndex
+        public Depts CurrentDeptor
         {
-            get => _currentIndex;
-            set => SetProperty(ref _currentIndex, value);
+            get => _currentDeptor;
+            set => SetProperty(ref _currentDeptor, value);
         }
 
         private ICommand _addDebtorCommand;
@@ -49,17 +47,17 @@ namespace TheDebtBook
         {
             get => _addDebtorCommand ?? (_addDebtorCommand = new DelegateCommand(() =>
             {
-                var newDebtor = new Depts();
-                var vm = new AddDebtorViewModel(newDebtor);
+                var newDeptor = new Depts();
+                var vm = new AddDebtorViewModel(newDeptor);
                 var dlg = new AddDeptorView()
                 {
                     DataContext = vm
                 };
                 if (dlg.ShowDialog() == true)
                 {
-                    Debtors.Add(newDebtor);
-                    CurrentDebtor = newDebtor;
-                    CurrentIndex = (Debtors.Count - 1);
+                    Deptors.Add(newDeptor);
+                    CurrentDeptor = newDeptor;
+                    Index = (Deptors.Count - 1);
                 }
             }));
         }

@@ -8,12 +8,12 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="400">
+        Title="The Debt book" Height="330.245" Width="421.799">
 
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
-    <Grid Name="DeptGrid">
+    <Grid Name="DeptGrid" Margin="0,0,16,1">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="183*"/>
             <ColumnDefinition Width="209*"/>
@@ -27,12 +27,12 @@
             Command="{Binding Path=AddDebtorCommand}"
             Content="Add" 
             HorizontalAlignment="Left" 
-            Margin="37,21,0,0"
+            Margin="73,61,0,0"
             VerticalAlignment="Top" 
-            Width="75" Grid.Column="1" Height="20"
+            Width="104" Grid.Column="1" Height="44"
             />
         <ListView Margin="23,61,167,10" Name="DebtorsView" Grid.Column="0"
-                      ItemsSource="{Binding Debtors}" SelectedItem="{Binding CurrentDebtor}" SelectedIndex="{Binding CurrentIndex}" Grid.ColumnSpan="2">
+                      ItemsSource="{Binding Deptors}" SelectedItem="{Binding CurrentDeptor}" SelectedIndex="{Binding Index}" Grid.ColumnSpan="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding Name}"/>

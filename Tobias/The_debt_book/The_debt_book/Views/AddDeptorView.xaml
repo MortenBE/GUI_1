@@ -5,40 +5,50 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        xmlns:local="clr-namespace:The_debt_book"
+        xmlns:local="clr-namespace:TheDebtBook"
         mc:Ignorable="d"
-        Title="AddDeptorView" Height="300" Width="250">
+        Title="AddDeptorView" Height="268.938" Width="267.167">
     <Window.DataContext>
-        <local:MainWindow/>
+        <local:MainWindowViewModel/>
     </Window.DataContext>
-    <Grid>
+    <Grid Margin="0,0,2,3">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto" MinHeight="30.667"></RowDefinition>
-            <RowDefinition Height="Auto" MinHeight="155.333"></RowDefinition>
+            <RowDefinition Height="Auto" MinHeight="87"></RowDefinition>
+            <RowDefinition Height="Auto" MinHeight="93"></RowDefinition>
+            <RowDefinition Height="Auto" MinHeight="75"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="80"/>
-            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row = "0"
-               HorizontalAlignment="Left" Margin="0,0,0,29" Grid.RowSpan="2" Width="72">Add Debtor</Label>
+               HorizontalAlignment="Left" Margin="-74,0,0,71" Grid.RowSpan="2" Width="74" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
 
         <TextBox Grid.Row = "1"
-                 HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="5,5.333,0,0" Text="{Binding Path=Dept.Name}" Height="18" ></TextBox>
- 
+                 HorizontalAlignment="Left" VerticalAlignment="Top" Width="175" Margin="62,50,0,0" Text="{Binding Path=Deptor.Name}" Height="30" />
+
         <TextBox Grid.Row = "2"
-                 HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="5,5,0,0"  Text="{Binding Path=Dept.Value}" Height="19" ></TextBox>
+                 HorizontalAlignment="Left" VerticalAlignment="Top" Width="177" Margin="62,37,0,0"  Text="{Binding Path=Deptor.Debt}" Height="30" />
 
         <Button Grid.Row="3" Grid.Column="0"
-                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,6.667,0,0" Width="40"
-                Name ="btnSaveNewDeb" Height="21" Command="{Binding Path=AddNewDeptCommand}" >Save</Button> 
+                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="36,10,0,0" Width="65"
+                Name ="btnSaveNewDeb" Height="34"  Click="btnSaveNewDeb_Click" Command="{Binding Path=OkButtonCommand}" >Save</Button>
 
-        <Button Grid.Row="3" Grid.Column="1"
-                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5.333,6.667,0,0" Width="40" 
-                Name ="btnChancelNewDeb" Height="21" Command="{Binding Path=ButtonCloseCommand}"  >Cancel</Button>
+        <Button Grid.Row="3"
+                HorizontalAlignment="Left" VerticalAlignment="Top" Margin="152,10,0,0" Width="59" 
+                Name ="btnChancelNewDeb" Height="34" Command="{Binding Path=ButtonCloseCommand}" IsCancel="True" >Cancel</Button>
+        <Label Content="Value:" Margin="10,37,200,30" Grid.Row="2"/>
+        <Label Content="Name:" Margin="10,51,200,10" Grid.Row="1"/>
+        <Label Content="AddDeptor: " Margin="91,10,85,51" Grid.Row="1"/>
 
     </Grid>
 </Window>

@@ -3,21 +3,21 @@ using Prism.Commands;
 using Prism.Mvvm;
 using TheDebtBook.Models;
 
-namespace TheDebtBook.ViewModels
+namespace TheDebtBook
 {
     public class AddDebtorViewModel : BindableBase
     {
-        private Depts _currentDebtor;
+        private Depts _deptor;
 
-        public AddDebtorViewModel(Depts debtor)
+        public AddDebtorViewModel(Depts deptor)
         {
-            CurrentDebtor = debtor;
+            Deptor = deptor;
         }
 
-        public Depts CurrentDebtor
+        public Depts Deptor
         {
-            get => _currentDebtor;
-            set => SetProperty(ref _currentDebtor, value);
+            get => _deptor;
+            set => SetProperty(ref _deptor, value);
         }
 
         private ICommand _okButtonCommand;
@@ -26,7 +26,7 @@ namespace TheDebtBook.ViewModels
         {
             get => _okButtonCommand ?? (_okButtonCommand =
                        new DelegateCommand(OkButtonCommandExecute, OkButtonCommandCanExecute)
-                           .ObservesProperty(() => CurrentDebtor.Name).ObservesProperty(() => CurrentDebtor.Debt));
+                           .ObservesProperty(() => Deptor.Name).ObservesProperty(() => Deptor.Debt));
         }
 
         private void OkButtonCommandExecute()
@@ -42,9 +42,9 @@ namespace TheDebtBook.ViewModels
             get
             {
                 bool isValid = true;
-                if (string.IsNullOrWhiteSpace(CurrentDebtor.Name))
+                if (string.IsNullOrWhiteSpace(Deptor.Name))
                     isValid = false;
-                if (string.IsNullOrWhiteSpace(CurrentDebtor.Debt.ToString()))
+                if (string.IsNullOrWhiteSpace(Deptor.Debt.ToString()))
                     isValid = false;
                 return isValid;
             }
