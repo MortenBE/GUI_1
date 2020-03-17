@@ -11,7 +11,7 @@
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
-    <Grid Margin="0,0,2,3">
+    <Grid Margin="0,0,2,3" Background="AliceBlue">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto" MinHeight="87"></RowDefinition>
@@ -43,7 +43,7 @@
 
         <Button Grid.Row="3" Grid.Column="0"
                 HorizontalAlignment="Left" VerticalAlignment="Top" Margin="62,10.333,0,0" Width="70"
-                Name ="btnSaveNewDeb" Height="34"  Click="btnSaveNewDeb_Click" Command="{Binding Path=AddDeptor}"
+                Name ="btnSaveNewDeb" Height="34"  Click="btnSaveNewDeb_Click" Command="{Binding Path=AddButton}"
                 Style="{StaticResource ButtonStyle}">Save</Button>
 
         <Button Grid.Row="3"

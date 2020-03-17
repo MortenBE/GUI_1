@@ -13,7 +13,7 @@
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
-    <Grid Name="DeptGrid">
+    <Grid Name="DeptGrid" Background="AliceBlue">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" MinWidth="245.333"/>
             <ColumnDefinition Width="Auto" MinWidth="122"/>
