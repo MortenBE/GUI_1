@@ -1,0 +1,29 @@
+﻿<Application x:Class="The_debt_book.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:The_debt_book"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Style.Setters>
+
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontFamily" Value="Arial"/>
+                <Setter Property="Padding" Value="10,5"/>
+                <Setter Property="BorderBrush" Value="#FF292946"/>
+                <Setter Property="BorderThickness" Value="3"/>
+
+            </Style.Setters>
+            <Style.Triggers>
+                <Trigger Property="Control.IsMouseOver" Value="True">
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <DropShadowEffect ShadowDepth="3" Color="Navy" BlurRadius="12"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </Application.Resources>
+</Application>
