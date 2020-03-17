@@ -30,7 +30,7 @@
             VerticalAlignment="Top" Height="26" Width="41"/>
 
         <Button Grid.Row="1" Grid.Column="1"                
-            Command="{Binding Path=AddDebtorCommand}"
+            Command="{Binding Path=AddDeptor}"
             Content="Add" 
             Width="104" Height="40" Margin="21.333,5,0,0" VerticalAlignment="Top"  
             />
@@ -45,5 +45,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button Grid.Row="1" Grid.Column="1"                
+            Command="{Binding DeleteDeptor}"
+            Content="Delete Selected" 
+            Width="104" Height="40" Margin="23,70,0,0" VerticalAlignment="Top"  
+            />
     </Grid>
 </Window>

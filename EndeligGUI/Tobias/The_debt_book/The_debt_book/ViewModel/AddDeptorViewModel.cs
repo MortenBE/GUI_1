@@ -20,19 +20,19 @@ namespace TheDebtBook
             set => SetProperty(ref _deptor, value);
         }
 
-        private ICommand _okButtonCommand;
+        private ICommand _addButton;
 
-        public ICommand OkButtonCommand
+        public ICommand AddButton
         {
-            get => _okButtonCommand ?? (_okButtonCommand =
-                       new DelegateCommand(OkButtonCommandExecute, OkButtonCommandCanExecute)
+            get => _addButton ?? (_addButton =
+                       new DelegateCommand(AddButtonExecuter, AddButtonCanExecute)
                            .ObservesProperty(() => Deptor.Name).ObservesProperty(() => Deptor.Debt));
         }
 
-        private void OkButtonCommandExecute()
+        private void AddButtonExecuter()
         { }
 
-        private bool OkButtonCommandCanExecute()
+        private bool AddButtonCanExecute()
         {
             return CheckEmpty;
         }
@@ -49,5 +49,6 @@ namespace TheDebtBook
                 return isValid;
             }
         }
+
     }
 }

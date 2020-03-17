@@ -41,11 +41,11 @@
 
         <Button Grid.Row="3" Grid.Column="0"
                 HorizontalAlignment="Left" VerticalAlignment="Top" Margin="36,10,0,0" Width="65"
-                Name ="btnSaveNewDeb" Height="34"  Click="btnSaveNewDeb_Click" Command="{Binding Path=OkButtonCommand}" >Save</Button>
+                Name ="btnSaveNewDeb" Height="34"  Click="btnSaveNewDeb_Click" Command="{Binding Path=AddDeptor}" >Save</Button>
 
         <Button Grid.Row="3"
                 HorizontalAlignment="Left" VerticalAlignment="Top" Margin="152,10,0,0" Width="59" 
-                Name ="btnChancelNewDeb" Height="34" Command="{Binding Path=ButtonCloseCommand}" IsCancel="True" >Cancel</Button>
+                Name ="btnChancelNewDeb" Height="34" IsCancel="True" >Cancel</Button>
         <Label Content="Value:" Margin="10,37,200,30" Grid.Row="2"/>
         <Label Content="Name:" Margin="10,51,200,10" Grid.Row="1"/>
         <Label Content="AddDeptor: " Margin="91,10,85,51" Grid.Row="1"/>

@@ -12,7 +12,7 @@ namespace TheDebtBook
         private int _index;
         private Depts _currentDeptor;
         private ObservableCollection<Depts> _deptors;
-        
+
 
         public MainWindowViewModel()
         {
@@ -41,11 +41,11 @@ namespace TheDebtBook
             set => SetProperty(ref _currentDeptor, value);
         }
 
-        private ICommand _addDebtorCommand;
-        
-        public ICommand AddDebtorCommand
+        private ICommand _addDeptor;
+
+        public ICommand AddDeptor
         {
-            get => _addDebtorCommand ?? (_addDebtorCommand = new DelegateCommand(() =>
+            get => _addDeptor ?? (_addDeptor = new DelegateCommand(() =>
             {
                 var newDeptor = new Depts();
                 var vm = new AddDebtorViewModel(newDeptor);
@@ -60,6 +60,35 @@ namespace TheDebtBook
                     Index = (Deptors.Count - 1);
                 }
             }));
+        }
+        private ICommand _deleteDeptor;
+
+        public ICommand DeleteDeptor
+        {
+            get => _deleteDeptor ??
+                   (_deleteDeptor = new DelegateCommand(DeleteDeptorExecuter, DeleteDeptorCanExecute).ObservesProperty(() => Index));
+        }
+
+        private void DeleteDeptorExecuter()
+        {
+            Deptors.Remove(CurrentDeptor);
+            if (Deptors.Count > 0)
+            {
+                CurrentDeptor = Deptors[(Deptors.Count - 1)];
+                Index = (Deptors.Count - 1);
+            }
+        }
+
+        private bool DeleteDeptorCanExecute()
+        {
+            if (Deptors.Count > 0 && Index >= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
