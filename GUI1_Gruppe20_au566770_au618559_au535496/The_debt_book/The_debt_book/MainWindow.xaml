@@ -21,7 +21,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            
+                     
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0"
@@ -61,5 +61,20 @@
             Width="104" Height="40" Margin="23,70,0,0" VerticalAlignment="Top"  
             Style="{StaticResource ButtonStyle}"
             />
+        <Button Grid.Row="1" Grid.Column="1"                
+            Command="{Binding SaveAsCommand}" 
+            Content="Save List" 
+            Width="104" Height="40" Margin="22.333,130.333,2.333,0" VerticalAlignment="Top"  
+            Style="{StaticResource ButtonStyle}"
+            />
+
+        <Button Grid.Row="1" Grid.Column="1"                
+            Command="{Binding OpenFileCommand}" 
+            Content="Load List" 
+            Width="104" Height="40" Margin="22.333,185.333,3,0" VerticalAlignment="Top"  
+            Style="{StaticResource ButtonStyle}"
+            />
+
+
     </Grid>
 </Window>
