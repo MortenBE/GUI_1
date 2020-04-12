@@ -25,8 +25,8 @@ namespace TheDebtBook
         {
             Deptors = new ObservableCollection<Depts>()
             {
-                new Depts("Gustav", 100),
-                new Depts("Morten", 150),
+                new Depts("Gustav", new AddDeptsModel(DateTime.Today,100)),
+                new Depts("Morten", new AddDeptsModel(DateTime.Today,250))
             };
         }
 
@@ -118,6 +118,31 @@ namespace TheDebtBook
             {
                 return false;
             }
+        }
+
+        private ICommand _listViewItemDoubleClickCommand;
+        public ICommand ListViewItemDoubleClickCommand
+        {
+            get => _listViewItemDoubleClickCommand ??
+                   (_listViewItemDoubleClickCommand = new DelegateCommand(() =>
+                   {
+                       var temp = CurrentDeptor.Clone();
+                       var vm = new AddDebtorViewModel(temp);
+
+                       var dlg = new AddDeptsView()
+                       {
+                           DataContext = vm,
+                           Owner = App.Current.MainWindow
+                       };
+                       if (dlg.ShowDialog() == true)
+                       {
+                           CurrentDeptor.Dept = temp.Dept;
+                           CurrentDeptor.DeptsCollect = temp.DeptsCollect;
+                           RaisePropertyChanged("TotalDebt");
+                       }
+                   }, () =>
+                   { return Index >= 0; }
+                       ).ObservesProperty(() => Index));
         }
 
         #region editDebt

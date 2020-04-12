@@ -13,6 +13,7 @@ namespace TheDebtBook
         {
             Deptor = deptor;
         }
+  
 
         public Depts Deptor
         {
@@ -26,7 +27,7 @@ namespace TheDebtBook
         {
             get => _addButton ?? (_addButton =
                        new DelegateCommand(AddButtonExecuter, AddButtonCanExecute)
-                           .ObservesProperty(() => Deptor.Name).ObservesProperty(() => Deptor.Debt));
+                           .ObservesProperty(() => Deptor.Name).ObservesProperty(() => Deptor.Dept));
         }
 
         private void AddButtonExecuter()
@@ -44,7 +45,7 @@ namespace TheDebtBook
                 bool isValid = true;
                 if (string.IsNullOrWhiteSpace(Deptor.Name))
                     isValid = false;
-                if (string.IsNullOrWhiteSpace(Deptor.Debt.ToString()))
+                if (string.IsNullOrWhiteSpace(Deptor.Dept.ToString()))
                     isValid = false;
                 return isValid;
             }
